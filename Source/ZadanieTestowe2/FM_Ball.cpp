@@ -6,11 +6,8 @@ AFM_Ball::AFM_Ball()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	_RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root Component"));
-	RootComponent = _RootComponent;
-	
 	BallMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Sphere Mesh"));
-	BallMesh->SetupAttachment(RootComponent);
+	RootComponent = BallMesh;
 
 	InteractionWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("Interaction Widget"));
 	InteractionWidget->SetupAttachment(BallMesh);
