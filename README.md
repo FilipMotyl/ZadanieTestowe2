@@ -12,6 +12,8 @@ Wytyczne:
 - Wersja silnika Unreal Engine 4.27
 - Programowanie w C++ (dozwolone użycie Blueprint’ów tylko zadaniu 4.)
 - Użycie “Third person template” jako bazy
+
+  
 Cel zadania
 
 Stwórz prostą grę pozwalającą na poruszanie się postacią pod ‘WSAD’ oraz Player
