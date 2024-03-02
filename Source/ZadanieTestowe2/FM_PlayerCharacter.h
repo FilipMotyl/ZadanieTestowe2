@@ -38,7 +38,6 @@ private:
 	void TurnRate(float AxisValue);
 
 	void Interact();
-	void StartTrajectoryCalculation();
 	void Throw();
 
 	UPROPERTY(EditAnywhere)

@@ -10,7 +10,11 @@ AFM_Ball::AFM_Ball()
 	RootComponent = BallMesh;
 
 	InteractionWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("Interaction Widget"));
-	InteractionWidget->SetupAttachment(BallMesh);
+	InteractionWidget->SetupAttachment(RootComponent);
+	
+	TrailParticle = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Trail Particle"));
+	TrailParticle->SetupAttachment(RootComponent);
+	
 }
 
 void AFM_Ball::BeginPlay()

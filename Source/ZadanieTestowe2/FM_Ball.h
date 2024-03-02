@@ -2,6 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
 #include <Components/WidgetComponent.h>
 #include "FM_InteractionInterface.h"
 #include "FM_Ball.generated.h"
@@ -31,9 +33,13 @@ public:
 private:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* _RootComponent;
+
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* BallMesh;
 
 	UPROPERTY(EditAnywhere)
 	UWidgetComponent* InteractionWidget;
+
+	UPROPERTY(EditDefaultsOnly)
+	UNiagaraComponent* TrailParticle;
 };

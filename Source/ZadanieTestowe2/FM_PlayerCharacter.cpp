@@ -58,11 +58,6 @@ void AFM_PlayerCharacter::Tick(float DeltaTime)
 	{
 		TargetInteractible->ShowInteractionWidget();
 	}
-
-	if (bShouldProjectTrajectory)
-	{
-		//TODO: DEBUG TRAJECTORY
-	}
 }
 
 void AFM_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -77,8 +72,7 @@ void AFM_PlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 	PlayerInputComponent->BindAxis(TEXT("TurnRate"), this, &AFM_PlayerCharacter::TurnRate);
 
 	PlayerInputComponent->BindAction(TEXT("Interact"), EInputEvent::IE_Pressed, this, &AFM_PlayerCharacter::Interact);
-	PlayerInputComponent->BindAction(TEXT("Throw"), EInputEvent::IE_Released, this, &AFM_PlayerCharacter::Throw);
-	PlayerInputComponent->BindAction(TEXT("Throw"), EInputEvent::IE_Pressed, this, &AFM_PlayerCharacter::StartTrajectoryCalculation);
+	PlayerInputComponent->BindAction(TEXT("Throw"), EInputEvent::IE_Pressed, this, &AFM_PlayerCharacter::Throw);
 }
 
 void AFM_PlayerCharacter::MoveForward(float AxisValue)
@@ -109,15 +103,8 @@ void AFM_PlayerCharacter::Interact()
 	}
 }
 
-void AFM_PlayerCharacter::StartTrajectoryCalculation()
-{
-	bShouldProjectTrajectory = true;
-
-}
-
 void AFM_PlayerCharacter::Throw()
 {
-	bShouldProjectTrajectory = false;
 	if (BallCount <= 0)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Sorry, no balls."));
