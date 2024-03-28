@@ -113,10 +113,10 @@ void AFM_PlayerCharacter::Throw()
 	{
 		AFM_Ball* BallPtr = GetWorld()->SpawnActor<AFM_Ball>(BallClass, SpawnPoint->GetComponentLocation(), Camera->GetComponentRotation());
 		BallPtr->GetStaticMeshComponent()->AddImpulse(Camera->GetForwardVector() * ThrowPower);
+		OnBallThrown.Broadcast(BallPtr);
 		if (--BallCount == 0)
 		{
 			HeldBallMesh->SetVisibility(false);
-			OnBallThrown.Broadcast(BallPtr);
 		}
 	}
 }
